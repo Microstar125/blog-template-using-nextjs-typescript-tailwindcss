@@ -10,6 +10,7 @@ import {
   webShare,
 } from "../../utils/utils";
 import NavSidebar from "./NavSideBar";
+import { RelumeNav } from "./RelumeNav";
 import Search from "../Search";
 import { PRIMARY_NAV } from "../../../BLOG_CONSTANTS/_BLOG_SETUP";
 import { useTheme } from "next-themes";
@@ -75,61 +76,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav
-        className={combineClasses(
-          classes.navbar,
-          "bg-white  dark:bg-slate-900 dark:text-white text-black"
-        )}
-      >
-        {isMobile ? (
-          <SimpleNavbar
-            openSearch={openSearch}
-            changeTheme={changeTheme}
-            toggleSideMenu={toggleSideMenu}
-            openSidebar={openSidebar}
-            navSetup={PRIMARY_NAV}
-            onShareClick={onShareClick}
-          />
-        ) : (
-          (() => {
-            switch (PRIMARY_NAV.type) {
-              case NavbarType.DEFAULT:
-                return (
-                  <SimpleNavbar
-                    openSearch={openSearch}
-                    changeTheme={changeTheme}
-                    toggleSideMenu={toggleSideMenu}
-                    openSidebar={openSidebar}
-                    navSetup={PRIMARY_NAV}
-                    onShareClick={onShareClick}
-                  />
-                );
-              case NavbarType.CENTERED:
-                return (
-                  <CenteredNavbar
-                    openSearch={openSearch}
-                    changeTheme={changeTheme}
-                    toggleSideMenu={toggleSideMenu}
-                    openSidebar={openSidebar}
-                    navSetup={PRIMARY_NAV}
-                    onShareClick={onShareClick}
-                  />
-                );
-              default:
-                return (
-                  <SimpleNavbar
-                    openSearch={openSearch}
-                    changeTheme={changeTheme}
-                    toggleSideMenu={toggleSideMenu}
-                    openSidebar={openSidebar}
-                    navSetup={PRIMARY_NAV}
-                    onShareClick={onShareClick}
-                  />
-                );
-            }
-          })()
-        )}
-      </nav>
+      <RelumeNav />
 
       <NavSidebar
         openSidebar={openSidebar}
